@@ -1,0 +1,33 @@
+.fill-height {
+  height: 100%;
+}
+
+.back-button-font {
+  float: left;
+  cursor: pointer;
+}
+
+//   this is the smaller window that appears on the screen
+// which gives the filling that a secondary window is open
+.sub-app {
+  z-index: 999;
+  position: relative;
+  margin: 15px;
+  box-shadow: 0 13px 30px -19px #40514e;
+  border-radius: 9px;
+  // for firefox
+  width: -moz-available;
+  // for chrome
+  width: -webkit-fill-available;
+
+  &-content {
+    height: 85vh;
+    padding: 20px 15px;
+    justify-content: left;
+  }
+}
+.scrollableCell {
+  height: "100%";
+  height: "auto";
+  overflow-y: "auto";
+}

@@ -1,0 +1,10 @@
+.scoreboardContainer {
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  .scoreboardHeader {
+    border-bottom: 1px solid gainsboro;
+    height: 50px;
+    padding: 20px;
+  }
+}

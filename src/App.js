@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+// state managment
+import { connect } from "react-redux";
+
+// components
+import Tiles from "./components/Tiles";
+import Modal from "./components/Modal";
+import Scoreboard from "./components/Scoreboard";
+
+// css
+import "./css/app.scss";
+import "./css/containers.scss";
+import "./css/colors.scss";
+import "./css/frames.scss";
+import "./css/elements.scss";
+
+const App = props => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App color-pallete2">
+      {/* Modal window here */}
+      {props.modal.visibility && (
+        <Modal header={props.modal.header} body={props.modal.body}></Modal>
+      )}
+      {/* main content here */}
+      <div className="sub-app">
+        <div className="sub-app-content flexcontainer">
+          {/* container of the actual game */}
+          <div className="flexcontainer-block block-margin xs-12 md-6">
+            {props.gameStatus === "running" && <Tiles></Tiles>}
+          </div>
+          {/* score board */}
+          <div className="flexcontainer-block block-margin xs-12 md-6">
+            <Scoreboard></Scoreboard>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = state => ({
+  modal: state.gameReducer.modal,
+  gameStatus: state.gameReducer.gameStatus
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);

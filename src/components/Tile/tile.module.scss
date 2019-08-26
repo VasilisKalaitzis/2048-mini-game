@@ -1,0 +1,73 @@
+.tileBlock {
+  margin: 5px;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  text-align: center;
+  position: relative;
+
+  .tileInner {
+    position: relative;
+    top: 35%;
+  }
+
+  &valuenull {
+    background-color: white;
+    color: #f86c5e;
+    font-size: 2.5em;
+  }
+  &value2 {
+    background-color: #ccffe6;
+    color: #f86154;
+    font-size: 2.5em;
+  }
+  &value4 {
+    background-color: #ccf2ff;
+    color: #f86154;
+    font-size: 2.5em;
+  }
+  &value8 {
+    background-color: #cce6ff;
+    color: #dc1b09;
+    font-size: 2.5em;
+  }
+  &value16 {
+    background-color: #ccccff;
+    color: #dc1b09;
+    font-size: 2.2em;
+  }
+  &value32 {
+    background-color: #f2ccff;
+    color: #ab1507;
+    font-size: 2.2em;
+  }
+  &value64 {
+    background-color: #f2ccff;
+    color: #ab1507;
+    font-size: 2.2em;
+  }
+  &value128 {
+    background-color: #ffccff;
+    color: #7a0f05;
+    font-size: 1.8em;
+  }
+  &value256 {
+    background-color: #ffccf2;
+    color: #7a0f05;
+    font-size: 1.8em;
+  }
+  &value512 {
+    background-color: #ffcce6;
+    color: #7a0f05;
+    font-size: 1.8em;
+  }
+  &value1024 {
+    background-color: #ffccd9;
+    color: #490903;
+    font-size: 1.2em;
+  }
+  &value4096 {
+    background-color: #ffcccc;
+    color: #490903;
+    font-size: 1.2em;
+  }
+}

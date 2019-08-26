@@ -1,0 +1,43 @@
+// here are the themes of the basic element that the app is using (e.g buttons)
+
+.beau-button {
+  position: relative;
+  text-align: center;
+  background: #f86c5e;
+  vertical-align: middle;
+  color: white;
+  border: none;
+  height: 60px;
+  font-size: inherit;
+  padding: 0 40px;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+
+  &:hover {
+    background: white;
+    color: #f86c5e;
+  }
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #f86c5e;
+    transition: 400ms ease all;
+  }
+  &:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+  }
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+  }
+}
