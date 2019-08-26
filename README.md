@@ -1,3 +1,6 @@
+2048-mini-game
+Implementation of the 2048 game, using React & Redux
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
