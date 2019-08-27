@@ -1,7 +1,8 @@
 import {
   START_GAME,
   INCREASE_CURRENT_SCORE,
-  CHANGE_GAME_STATUS
+  CHANGE_GAME_STATUS,
+  FETCH_SCORE_HISTORY
 } from "../actions/types";
 
 const initialState = {
@@ -17,6 +18,8 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case FETCH_SCORE_HISTORY:
+      return { ...state, scoreHistory: action.payload.scoreHistory };
     case START_GAME:
       return {
         ...state,
@@ -39,8 +42,6 @@ export default function(state = initialState, action) {
       let modal;
       switch (action.payload.gameStatus) {
         case "victory":
-          // store the user's score on the scoreboard
-
           modal = {
             visibility: true,
             header: "You have won!",
@@ -50,7 +51,8 @@ export default function(state = initialState, action) {
           return {
             ...state,
             modal: modal,
-            gameStatus: action.payload.gameStatus
+            gameStatus: action.payload.gameStatus,
+            currentScore: 0
           };
         case "defeat":
           modal = {
@@ -62,7 +64,8 @@ export default function(state = initialState, action) {
           return {
             ...state,
             modal: modal,
-            gameStatus: action.payload.gameStatus
+            gameStatus: action.payload.gameStatus,
+            currentScore: 0
           };
         default:
           return { ...state };
