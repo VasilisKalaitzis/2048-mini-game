@@ -38,3 +38,9 @@ main {
 .big-fonts {
   font-size: 1.5em;
 }
+
+.text-elipsis {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}

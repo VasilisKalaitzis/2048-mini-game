@@ -4,11 +4,13 @@
   text-align: left;
   .scoreboardHeader {
     border-bottom: 1px solid gainsboro;
-    height: 50px;
     padding: 20px;
   }
   .scoreboardBody {
     padding: 20px;
+    // for firefox
+    height: inherit;
+    // for chrome
     height: -webkit-fill-available;
   }
 }

@@ -16,15 +16,21 @@ const Scoreboard = props => {
   function renderScoreboardHeader(username, score) {
     return (
       <React.Fragment>
-        <div className="flexcontainer-block xs-6 sm-hide">Player</div>
-        <div className="flexcontainer-block xs-6">Moves</div>
-        <div className="flexcontainer-block xs-6 sm-hide big-fonts">
-          <b>
-            YOU
-            {username !== undefined && username !== "" && "(" + username + ")"}
-          </b>
+        <div className="flexcontainer-block block-margin xs-6 sm-hide">
+          Player
         </div>
-        <div className="flexcontainer-block xs-6 big-fonts">
+        <div className="flexcontainer-block block-margin xs-6">Moves</div>
+        <div className="flexcontainer-block block-margin xs-6 text-elipsis sm-hide big-fonts">
+          <span>
+            <b>
+              YOU
+              {username !== undefined &&
+                username !== "" &&
+                "(" + username + ")"}
+            </b>
+          </span>
+        </div>
+        <div className="flexcontainer-block block-margin text-elipsis xs-6 big-fonts">
           <b>{score}</b>
         </div>
       </React.Fragment>
@@ -38,10 +44,12 @@ const Scoreboard = props => {
       scores.map((record, index) => {
         return (
           <div key={"scoreboard-body-" + index} className="flexcontainer">
-            <div className="flexcontainer-block xs-6">
+            <div className="flexcontainer-block block-margin xs-6">
               {index + 1}) {record.username}
             </div>
-            <div className="flexcontainer-block xs-6">{record.score}</div>
+            <div className="flexcontainer-block block-margin xs-6">
+              {record.score}
+            </div>
           </div>
         );
       })
