@@ -16,10 +16,12 @@ const Scoreboard = props => {
   function renderScoreboardHeader(username, score) {
     return (
       <React.Fragment>
-        <div className="flexcontainer-block block-margin xs-6 sm-hide">
+        <div className="flexcontainer-block block-margin xs-6 text-elipsis sm-hide">
           Player
         </div>
-        <div className="flexcontainer-block block-margin xs-6">Moves</div>
+        <div className="flexcontainer-block block-margin xs-6 text-elipsis">
+          Moves
+        </div>
         <div className="flexcontainer-block block-margin xs-6 text-elipsis sm-hide big-fonts">
           <span>
             <b>
