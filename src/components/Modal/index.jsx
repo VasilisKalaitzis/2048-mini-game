@@ -25,7 +25,7 @@ const Modal = props => {
       case "Start":
         // Modal with username form and a button that starts the game
         return (
-          <React.Fragment>
+          <form>
             <div className={styles.inputContainer}>
               <input
                 type="text"
@@ -34,13 +34,14 @@ const Modal = props => {
             </div>
             <div>
               <button
+                type="submit"
                 className={`beau-button ${styles.modalContentButton} container-margin`}
                 onClick={() => props.startGame(username)}
               >
                 {body}
               </button>
             </div>
-          </React.Fragment>
+          </form>
         );
       default:
         return (
