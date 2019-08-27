@@ -17,8 +17,8 @@ const Scoreboard = props => {
         <div className="flexcontainer-block xs-6 sm-hide big-fonts">
           <b>
             YOU
-            {props.username != undefined &&
-              props.username != "" &&
+            {props.username !== undefined &&
+              props.username !== "" &&
               "(" + props.username + ")"}{" "}
           </b>
         </div>

@@ -103,7 +103,7 @@ export function moveTileMap(tileMap, direction) {
   // variable that will let us know if any tile was moved
   var tilesMoved = false;
   // variable that will let us know if the game has been won
-  var victory = false;
+  var gameStatus = "running";
 
   // variables that defined the loop parse direction
   var x = [],
@@ -114,10 +114,10 @@ export function moveTileMap(tileMap, direction) {
   }
 
   switch (direction) {
-    case "DOWN":
+    case "Down":
       y = y.reverse();
       break;
-    case "RIGHT":
+    case "Right":
       x = x.reverse();
       break;
     default:
@@ -148,7 +148,7 @@ export function moveTileMap(tileMap, direction) {
           }
 
           if (value === 2048) {
-            victory = true;
+            gameStatus = "victory";
           }
 
           tilesMoved = true;
@@ -157,15 +157,19 @@ export function moveTileMap(tileMap, direction) {
     }
   }
 
-  if (victory) {
-    // check if the user has won
-  }
   if (tilesMoved) {
     addRandomTile(tileMap);
     // check available moves, if they don't exist at all then it's game over
+    if (checkEndOfGame(tileMap)) {
+      gameStatus = "defeat";
+    }
   }
 
-  return { tileMap: [...tileMap], condition: "", tilesMoved: tilesMoved };
+  return {
+    tileMap: [...tileMap],
+    gameStatus: gameStatus,
+    tilesMoved: tilesMoved
+  };
 }
 
 // find the farther tile that our tile can move toward one direction
@@ -184,26 +188,26 @@ function findFartherTile(tileValue, tileMap, footprintMap, y, x, direction) {
   var nextY = y;
   var nextX = x;
   switch (direction) {
-    case "UP":
+    case "Up":
       nextY--;
       if (nextY < 0) {
         return [y, x, "bounded", tileValue];
       }
       break;
-    case "DOWN":
+    case "Down":
       nextY++;
       if (nextY > size - 1) {
         return [y, x, "bounds", tileValue];
       }
 
       break;
-    case "LEFT":
+    case "Left":
       nextX--;
       if (nextX < 0) {
         return [y, x, "bounded", tileValue];
       }
       break;
-    case "RIGHT":
+    case "Right":
       nextX++;
       if (nextX > size - 1) {
         return [y, x, "bounded", tileValue];
@@ -233,4 +237,25 @@ function findFartherTile(tileValue, tileMap, footprintMap, y, x, direction) {
       direction
     );
   }
+}
+
+function checkEndOfGame(tileMap) {
+  var size = tileMap.length;
+
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      // to satisfy the condition there should:
+      // 1) an available tile OR
+      // 2) an adjasted tile with the same value
+      if (
+        tileMap[i][j] === null ||
+        (i + 1 < size && tileMap[i][j] === tileMap[i + 1][j]) ||
+        (j + 1 < size && tileMap[i][j] === tileMap[i][j + 1])
+      ) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 }

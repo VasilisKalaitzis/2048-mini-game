@@ -1,40 +1,22 @@
 import {
-  OPEN_MODAL,
-  CLOSE_MODAL,
   START_GAME,
-  INCREASE_CURRENT_SCORE
+  INCREASE_CURRENT_SCORE,
+  CHANGE_GAME_STATUS
 } from "../actions/types";
 
 const initialState = {
   modal: {
-    visibility: 1,
+    visibility: true,
     header: "Enter Username",
     body: "Start"
   },
+  username: "",
   gameStatus: "halted",
   currentScore: 0
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case OPEN_MODAL:
-      return {
-        ...state,
-        modal: {
-          visibility: true,
-          header: action.payload.header,
-          body: action.payload.body
-        }
-      };
-    case CLOSE_MODAL:
-      return {
-        ...state,
-        modal: {
-          visibility: false,
-          header: "",
-          body: ""
-        }
-      };
     case START_GAME:
       return {
         ...state,
@@ -53,7 +35,38 @@ export default function(state = initialState, action) {
         ...state,
         currentScore: newCurrentScore
       };
-      break;
+    case CHANGE_GAME_STATUS:
+      let modal;
+      switch (action.payload.gameStatus) {
+        case "victory":
+          // store the user's score on the scoreboard
+
+          modal = {
+            visibility: true,
+            header: "You have won!",
+            body: "Restart"
+          };
+
+          return {
+            ...state,
+            modal: modal,
+            gameStatus: action.payload.gameStatus
+          };
+        case "defeat":
+          modal = {
+            visibility: true,
+            header: "You have lost!",
+            body: "Restart"
+          };
+
+          return {
+            ...state,
+            modal: modal,
+            gameStatus: action.payload.gameStatus
+          };
+        default:
+          return { ...state };
+      }
     default:
       return state;
   }

@@ -14,9 +14,9 @@ const Modal = props => {
   function renderHeader(header) {
     return (
       header !== "" && (
-        <div className={styles.modalContentHeader}>
+        <React.Fragment>
           <span>{header}</span>
-        </div>
+        </React.Fragment>
       )
     );
   }
@@ -25,7 +25,7 @@ const Modal = props => {
       case "Start":
         // Modal with username form and a button that starts the game
         return (
-          <div className={styles.modalContentBody}>
+          <React.Fragment>
             <div className={styles.inputContainer}>
               <input
                 type="text"
@@ -40,18 +40,29 @@ const Modal = props => {
                 {body}
               </button>
             </div>
-          </div>
+          </React.Fragment>
         );
       default:
-        return null;
+        return (
+          <div>
+            <button
+              className={`beau-button ${styles.modalContentButton} container-margin`}
+              onClick={() => props.startGame()}
+            >
+              {body}
+            </button>
+          </div>
+        );
     }
   }
 
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
-        {renderHeader(props.header)}
-        {renderBody(props.body)}
+        <div className={styles.modalContentHeader}>
+          {renderHeader(props.header)}
+        </div>
+        <div className={styles.modalContentBody}>{renderBody(props.body)}</div>
       </div>
     </div>
   );
