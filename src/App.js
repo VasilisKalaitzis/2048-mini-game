@@ -30,11 +30,11 @@ const App = props => {
             <span>Tip: Use your arrow keys to move the tiles!</span>
           </div>
           {/* container of the actual game */}
-          <div className="flexcontainer-block block-margin xs-12 md-6">
+          <div className="flexcontainer-block fix-height block-margin xs-12 md-6">
             {props.gameStatus === "running" && <Tiles></Tiles>}
           </div>
           {/* score board */}
-          <div className="flexcontainer-block block-margin xs-12 md-6">
+          <div className="flexcontainer-block fix-height block-margin xs-12 md-6">
             <Scoreboard></Scoreboard>
           </div>
         </div>
