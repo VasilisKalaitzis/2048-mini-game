@@ -27,7 +27,7 @@ const App = props => {
       <div className="sub-app">
         <div className="sub-app-content flexcontainer">
           <div className="flexcontainer-block xs-12">
-            <span>Tip: Use your arrow keys to move the tiles!</span>
+            <span>Tip: Use your arrow keys or swipe to move the tiles!</span>
           </div>
           {/* container of the actual game */}
           <div className="flexcontainer-block fix-height block-margin xs-12 md-6">
