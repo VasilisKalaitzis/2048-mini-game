@@ -34,7 +34,7 @@ const App = props => {
             {props.gameStatus === "running" && <Tiles></Tiles>}
           </div>
           {/* score board */}
-          <div className="flexcontainer-block fix-height block-margin xs-12 md-6">
+          <div className="flexcontainer-block fix-height block-margin xs-12 md-6 sm-hide">
             <Scoreboard></Scoreboard>
           </div>
         </div>
