@@ -14,6 +14,7 @@ import "./css/containers.scss";
 import "./css/colors.scss";
 import "./css/frames.scss";
 import "./css/elements.scss";
+import "./css/fonts.scss";
 
 const App = props => {
   return (
@@ -25,6 +26,9 @@ const App = props => {
       {/* main content here */}
       <div className="sub-app">
         <div className="sub-app-content flexcontainer">
+          <div className="flexcontainer-block xs-12">
+            <span>Tip: Use your arrow keys to move the tiles!</span>
+          </div>
           {/* container of the actual game */}
           <div className="flexcontainer-block block-margin xs-12 md-6">
             {props.gameStatus === "running" && <Tiles></Tiles>}

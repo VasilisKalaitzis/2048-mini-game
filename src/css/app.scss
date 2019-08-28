@@ -13,12 +13,6 @@ input:focus {
   outline: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -33,10 +27,6 @@ main {
   & > div {
     height: 100%;
   }
-}
-
-.big-fonts {
-  font-size: 1.5em;
 }
 
 .text-elipsis {
