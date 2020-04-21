@@ -74,8 +74,8 @@ const Tiles = props => {
   }, [handleInput]);
 
   return (
-    <div className={"flexcontainer color-pallete2 " + styles.tileContainer}>
-      <Swipeable className={`${styles.swipeContainer}`} onSwiped={swiped}>
+    <div className={"flexcontainer color-pallete2 " + styles.tileMap}>
+      <div className={`${styles.tileContainer}`}>
         {tileMap.map(row => {
           return row.map((value, index) => {
             return (
@@ -87,6 +87,8 @@ const Tiles = props => {
             );
           });
         })}
+        </div>
+        <Swipeable className={`${styles.swipeContainer}`} onSwiped={swiped}>
       </Swipeable>
     </div>
   );
